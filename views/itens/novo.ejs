@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+
+<div class="form-container">
+    <h2>Adicionar à Minha Lista</h2>
+    <p>Insira os detalhes do filme, série, anime ou animação que deseja organizar.</p>
+
+    <form action="/colecao/novo" method="POST">
+        <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Ex: Interstellar, Naruto, Breaking Bad..." required>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="tipo">Tipo de Conteúdo:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="Filme">Filme</option>
+                    <option value="Série">Série</option>
+                    <option value="Anime">Anime</option>
+                    <option value="Animação">Animação</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="genero">Gênero:</label>
+                <input type="text" id="genero" name="genero" placeholder="Ex: Ficção Científica, Ação, Drama">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="Não iniciado">Não iniciado</option>
+                    <option value="Em andamento">Em andamento</option>
+                    <option value="Concluído">Concluído</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="nota">Sua Nota (0 a 10):</label>
+                <input type="number" id="nota" name="nota" min="0" max="10" placeholder="Ex: 9">
+            </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+            <label for="favorito">
+                <input type="checkbox" id="favorito" name="favorito" value="1">
+                Marcar como Favorito ⭐
+            </label>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-salvar">Salvar Conteúdo</button>
+            <a href="/colecao" class="btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

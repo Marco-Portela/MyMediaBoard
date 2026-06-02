@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="welcome-container">
+    <div class="hero-section">
+        <h1>Bem-vindo ao MyMediaBoard (M²B) 🎬</h1>
+        <p class="subtitle">Seu gerenciador pessoal de filmes, séries, animes e animações.</p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>📂 Organize tudo</h3>
+            <p>Classifique o que você está assistindo como "Não iniciado", "Em andamento" ou "Concluído".</p>
+        </div>
+        <div class="feature-card">
+            <h3>⭐ Favorite e Avalie</h3>
+            <p>Dê notas de 0 a 10 e marque seus conteúdos favoritos para nunca mais esquecer.</p>
+        </div>
+        <div class="feature-card">
+            <h3>🔍 Filtros Rápidos</h3>
+            <p>Encontre o que deseja assistir filtrando por gênero, tipo de mídia ou ordem alfabética.</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <% if (usuarioLogado) { %>
+            <p>Que bom ter você de volta, <strong><%= usuarioLogado.nome %></strong>!</p>
+            <a href="/colecao" class="btn-primary">Acessar Minha Coleção 🚀</a>
+        <% } else { %>
+            <p>Pronto para começar a organizar sua vida cinéfila?</p>
+            <div class="cta-buttons">
+                <a href="/cadastro" class="btn-primary">Criar Conta Grátis</a>
+                <a href="/login" class="btn-secondary">Já tenho conta (Login)</a>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

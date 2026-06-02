@@ -36,7 +36,7 @@ const authRoutes = require('./routes/auth');
 const itensRoutes = require('./routes/itens');
 
 app.use('/', authRoutes);
-app.use('/Coleção', itensRoutes);
+app.use('/colecao', itensRoutes);
 
 app.get('/', (req, res) => {
     res.render('index');

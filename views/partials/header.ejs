@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMediaBoard (M²B)</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">🎬 MyMediaBoard <small>(M²B)</small></a>
+            </div>
+            <ul class="nav-links">
+                <% if (usuarioLogado) { %>
+                    <li><a href="/colecao">Minha Coleção</a></li>
+                    <li><a href="/colecao/novo">➕ Adicionar</a></li>
+                    <li class="user-info">Olá, <strong><%= usuarioLogado.nome %></strong></li>
+                    <li><a href="/sair" class="btn-logout">Sair</a></li>
+                <% } else { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/cadastro" class="btn-destaque">Cadastrar</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">

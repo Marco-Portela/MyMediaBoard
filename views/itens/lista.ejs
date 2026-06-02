@@ -1,0 +1,86 @@
+<%- include('../partials/header') %>
+
+<div class="dashboard-header">
+    <h2>Minha Coleção</h2>
+    <a href="/colecao/novo" class="btn-novo">➕ Adicionar Novo</a>
+</div>
+
+<form action="/colecao" method="GET" class="filter-form">
+    <div class="filter-group">
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" id="tipo" onchange="this.form.submit()">
+            <option value="">Todos</option>
+            <option value="Filme" <%= filtros.tipo === 'Filme' ? 'selected' : '' %>>Filme</option>
+            <option value="Série" <%= filtros.tipo === 'Série' ? 'selected' : '' %>>Série</option>
+            <option value="Anime" <%= filtros.tipo === 'Anime' ? 'selected' : '' %>>Anime</option>
+            <option value="Animação" <%= filtros.tipo === 'Animação' ? 'selected' : '' %>>Animação</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label for="status">Status:</label>
+        <select name="status" id="status" onchange="this.form.submit()">
+            <option value="">Todos</option>
+            <option value="Não iniciado" <%= filtros.status === 'Não iniciado' ? 'selected' : '' %>>Não iniciado</option>
+            <option value="Em andamento" <%= filtros.status === 'Em andamento' ? 'selected' : '' %>>Em andamento</option>
+            <option value="Concluído" <%= filtros.status === 'Concluído' ? 'selected' : '' %>>Concluído</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label for="ordenar">Ordenar por:</label>
+        <select name="ordenar" id="ordenar" onchange="this.form.submit()">
+            <option value="recente" <%= filtros.ordenar === 'recente' ? 'selected' : '' %>>Mais Recentes</option>
+            <option value="titulo" <%= filtros.ordenar === 'titulo' ? 'selected' : '' %>>Nome (A-Z)</option>
+        </select>
+    </div>
+    
+    <a href="/colecao" class="btn-limpar">Limpar Filtros</a>
+</form>
+
+<hr>
+
+<% if (itens.length === 0) { %>
+    <div class="empty-state">
+        <p>Nenhum conteúdo encontrado. Que tal cadastrar algo novo ou mudar os filtros?</p>
+    </div>
+<% } else { %>
+    <table class="media-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Tipo</th>
+                <th>Gênero</th>
+                <th>Status</th>
+                <th>Nota</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% itens.forEach(item => { %>
+                <tr class="<%= item.favorito === 1 ? 'item-favorito' : '' %>">
+                    <td>
+                        <%= item.favorito === 1 ? '⭐ ' : '' %><strong><%= item.titulo %></strong>
+                    </td>
+                    <td><span class="badge badge-tipo"><%= item.tipo %></span></td>
+                    <td><%= item.genero || '---' %></td>
+                    <td>
+                        <span class="badge status-<%= item.status.toLowerCase().replace(' ', '-') %>">
+                            <%= item.status %>
+                        </span>
+                    </td>
+                    <td><%= item.nota ? item.nota + '/10' : 'sem nota' %></td>
+                    <td class="actions-cell">
+                        <a href="/colecao/editar/<%= item.id %>" class="btn-editar">Editar</a>
+
+                        <form action="/colecao/deletar/<%= item.id %>" method="POST" onsubmit="return confirm('Tem certeza que deseja remover este item?')">
+                            <button type="submit" class="btn-deletar">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } %>
+
+<%- include('../partials/footer') %>

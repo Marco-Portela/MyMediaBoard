@@ -91,7 +91,7 @@ router.post('/novo', (req, res) => {
         // db.prepare().run() é usado para comandos que alteram dados (INSERT, UPDATE, DELETE)
         stmt.run(usuarioId, titulo, tipo, genero, status, notaTratada, ehFavorito);
 
-        res.redirect('/Coleção'); // Redireciona de volta para a lista principal
+        res.redirect('/colecao'); // Redireciona de volta para a lista principal
     } catch (error) {
         console.error(error);
         res.send('Erro ao adicionar o conteúdo.');
@@ -140,7 +140,7 @@ router.post('/editar/:id', (req, res) => {
         
         stmt.run(titulo, tipo, genero, status, notaTratada, ehFavorito, id, usuarioId);
 
-        res.redirect('/Coleção');
+        res.redirect('/colecao');
     } catch (error) {
         console.error(error);
         res.send('Erro ao atualizar o conteúdo.');
@@ -158,7 +158,7 @@ router.post('/deletar/:id', (req, res) => {
         const stmt = db.prepare('DELETE FROM itens WHERE id = ? AND usuario_id = ?');
         stmt.run(id, usuarioId);
 
-        res.redirect('/Coleção');
+        res.redirect('/colecao');
     } catch (error) {
         console.error(error);
         res.send('Erro ao deletar o conteúdo.');

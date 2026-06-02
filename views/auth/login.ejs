@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<div class="auth-box">
+    <h2>Entrar no MyMediaBoard</h2>
+    <p>Acesse sua coleção e atualize seus status.</p>
+
+    <form action="/login" method="POST">
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="seu-email@exemplo.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Entrar</button>
+    </form>
+
+    <p class="auth-footer">Novo por aqui? <a href="/cadastro">Crie uma conta gratuitamente</a>.</p>
+</div>
+
+<%- include('../partials/footer') %>
