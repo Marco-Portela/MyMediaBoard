@@ -17,14 +17,18 @@ router.post('/cadastro', async (req, res) => {
     const { nome, email, senha } = req.body;
 
     try {
+        // CORREÇÃO: Verifica se a senha atende ao requisito mínimo no servidor
+        if (!senha || senha.length < 6) {
+            return res.send('Erro: A senha deve conter pelo menos 6 caracteres.');
+        }
+
         // Verifica se o e-mail já está cadastrado
         const usuarioExiste = db.prepare('SELECT * FROM usuarios WHERE email = ?').get(email);
         if (usuarioExiste) {
-            // Se o usuário existir, podemos passar uma mensagem de erro futuramente
             return res.send('Este e-mail já está cadastrado.');
         }
 
-        // Criptografa a senha antes de salvar no banco (Boa prática de segurança!)
+        // Criptografa a senha antes de salvar no banco
         const senhaCriptografada = await bcrypt.hash(senha, 10);
 
         // Insere o novo usuário no banco de dados
