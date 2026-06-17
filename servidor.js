@@ -44,5 +44,5 @@ app.use((req, res) => {
 inicializarBanco();
 
 app.listen(PORTA, () => {
-    console.log(`Servidor rodando perfeitamente em: http://localhost:${PORTA}`);
+    console.log(`Servidor rodando perfeitamente na porta ${PORTA}`);
 });
