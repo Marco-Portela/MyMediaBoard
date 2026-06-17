@@ -59,6 +59,9 @@ header {
 }
 
 .navbar .logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     color: #ffffff;
     text-decoration: none;
     font-size: 1.4rem;
@@ -111,6 +114,11 @@ header {
     color: #ef4444 !important;
 }
 
+.logo-img {
+    height: 50px;        /* Defina a altura desejada. 35px-40px costuma ficar bom */
+    width: auto;         /* Garante que a largura se ajuste proporcionalmente para não distorcer */
+    display: block;      /* Ajuda a remover espaços em branco indesejados */
+}
 /* =========================================================================
    3. PÁGINA INICIAL (INDEX)
    ========================================================================= */
@@ -139,8 +147,9 @@ header {
 }
 
 .feature-card {
+    flex: 1;
     background: var(--bg-card);
-    padding: 2rem;
+    padding: 40px;
     border-radius: var(--raio);
     box-shadow: var(--sombra);
     border: 1px solid var(--borda);
@@ -149,6 +158,11 @@ header {
 .feature-card h3 {
     margin-bottom: 0.8rem;
     color: var(--cor-primaria);
+}
+
+.feature-card:hover{
+    box-shadow: 0 4px 10px rgba(7, 0, 51, 0.253);
+    transform: translateX(+5px);
 }
 
 .cta-section {
@@ -176,7 +190,10 @@ header {
     font-weight: 600;
 }
 .btn-primary { background: var(--cor-primaria); color: white; }
-.btn-primary:hover { background: var(--cor-primaria-hover); }
+.btn-primary:hover { 
+    background: var(--cor-primaria-hover); 
+    box-shadow: 0 4px 10px rgba(7, 0, 51, 0.253);
+    transform: translateX(+5px);}
 .btn-secondary { background: white; color: var(--texto-escuro); border: 1px solid var(--borda); }
 .btn-secondary:hover { background: #f1f5f9; }
 
