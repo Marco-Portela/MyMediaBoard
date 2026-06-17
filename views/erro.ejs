@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ops! Ocorreu um erro</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body class="error-body">
+
+    <div class="error-card">
+        <div class="error-icon">⚠️</div>
+        <h1 class="error-title">Não foi possível continuar</h1>
+        <p class="error-parag"><%= mensagem %></p> 
+        
+        <a href="<%= urlRetorno %>" class="btn-voltar">Voltar e tentar novamente</a>
+    </div>
+
+</body>
+</html>

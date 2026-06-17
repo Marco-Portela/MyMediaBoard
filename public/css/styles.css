@@ -432,3 +432,57 @@ footer {
     border-top: 1px solid #1e293b;
     margin-top: auto;
 }
+
+/* =========================================================================
+   7. PÁGINA DE ERROS
+   ========================================================================= */
+.error-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+} 
+
+.error-card {
+    background: none;
+    padding: 40px;
+    border-radius: 12px;
+    /* box-shadow: 0 4px 15px rgba(0,0,0,0.05) ; */
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+.error-icon {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.error-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.error-parag {
+    color: #000000;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.btn-voltar {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-voltar:hover { background-color: #2980b9; }

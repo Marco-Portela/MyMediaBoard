@@ -25,7 +25,10 @@ router.post('/cadastro', async (req, res) => {
         // Verifica se o e-mail já está cadastrado
         const usuarioExiste = db.prepare('SELECT * FROM usuarios WHERE email = ?').get(email);
         if (usuarioExiste) {
-            return res.send('Este e-mail já está cadastrado.');
+            return res.render('erro', {
+            mensagem: 'Este e-mail já está cadastrado.',
+            urlRetorno: '/cadastro'
+        });
         }
 
         // Criptografa a senha antes de salvar no banco
@@ -61,14 +64,20 @@ router.post('/login', async (req, res) => {
         const usuario = db.prepare('SELECT * FROM usuarios WHERE email = ?').get(email);
         
         if (!usuario) {
-            return res.send('Usuário ou senha incorretos.');
+            return res.render('erro', {
+            mensagem: 'Usuário ou senha incorretos.',
+            urlRetorno: '/login'
+        });
         }
 
         // Compara a senha digitada com a senha criptografada do banco
         const senhaCorreta = await bcrypt.compare(senha, usuario.senha);
 
         if (!senhaCorreta) {
-            return res.send('Usuário ou senha incorretos.');
+            return res.render('erro', {
+            mensagem: 'Usuário ou senha incorretos.',
+            urlRetorno: '/login'
+        });
         }
 
         // Se deu tudo certo, salva o usuário na Sessão (ele agora está logado!)
