@@ -15,11 +15,6 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-/* 6. Rota GET de Teste (Antes de criarmos o HTML de verdade)
-app.get('/', (req, res) => {
-    res.send('Olá, seja Bem-vindo ao MyMediaBoard.');
-}); */
-
 app.use(session({
     secret: process.env.SESSION_SECRET || 'zaqwsxcderfvbgtyhnmjupoiuyhjklç',
     resave: false,

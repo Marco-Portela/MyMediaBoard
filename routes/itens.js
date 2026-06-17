@@ -104,7 +104,7 @@ router.post('/novo', (req, res) => {
 
 // Exibe o formulário de edição já preenchido com os dados antigos
 router.get('/editar/:id', (req, res) => {
-    const { id } = req.params; // Pega o ID da rota (Ex: /Coleção/editar/5)
+    const { id } = req.params; // Pega o ID da rota (Ex: /Colecao/editar/5)
     const usuarioId = req.session.usuario.id;
 
     try {

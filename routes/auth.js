@@ -17,7 +17,7 @@ router.post('/cadastro', async (req, res) => {
     const { nome, email, senha } = req.body;
 
     try {
-        // CORREÇÃO: Verifica se a senha atende ao requisito mínimo no servidor
+        // Verifica se a senha atende ao requisito mínimo no servidor
         if (!senha || senha.length < 6) {
             return res.send('Erro: A senha deve conter pelo menos 6 caracteres.');
         }

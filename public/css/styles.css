@@ -1,5 +1,5 @@
 /* =========================================================================
-   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (CSS Variables)
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
    ========================================================================= */
 :root {
     --bg-principal: #f8fafc;
@@ -41,7 +41,7 @@ body {
 }
 
 /* =========================================================================
-   2. CABEÇALHO E NAVBAR
+   2. CABEÇALHO E BARRA DE NAVEGAÇÃO
    ========================================================================= */
 header {
     background-color: #0f172a; /* Dark background para o menu */
@@ -115,9 +115,9 @@ header {
 }
 
 .logo-img {
-    height: 50px;        /* Defina a altura desejada. 35px-40px costuma ficar bom */
-    width: auto;         /* Garante que a largura se ajuste proporcionalmente para não distorcer */
-    display: block;      /* Ajuda a remover espaços em branco indesejados */
+    height: 50px;
+    width: auto;
+    display: block;
 }
 /* =========================================================================
    3. PÁGINA INICIAL (INDEX)
@@ -322,7 +322,7 @@ header {
 }
 
 .item-favorito {
-    background-color: #fffbeb; /* Fundo levemente dourado para favoritos */
+    background-color: #fffbeb;
 }
 
 /* Badges de Status e Tipo */
