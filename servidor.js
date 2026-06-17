@@ -24,6 +24,8 @@ app.use(session({
 
 app.use((req, res, next) => {
     res.locals.usuarioLogado = req.session.usuario || null;
+    res.locals.anoAtual =
+        new Date().getFullYear();
     next();
 });
 
