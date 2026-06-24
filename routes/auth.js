@@ -39,7 +39,7 @@ router.post('/cadastro', async (req, res) => {
         stmt.run(nome, email, senhaCriptografada);
 
         // Cadastro feito com sucesso! Redireciona para o login
-        res.redirect('/login');
+        res.redirect('/login?cadastro=sucesso');
     } catch (error) {
         console.error(error);
         res.send('Erro ao realizar o cadastro.');
@@ -52,8 +52,10 @@ router.post('/cadastro', async (req, res) => {
 
 // Exibe a página de Login
 router.get('/login', (req, res) => {
-    res.render('auth/login');
+    res.render('auth/login', {
+        cadastroSucesso: req.query.cadastro === 'sucesso'
     });
+});
 
 // Processa o formulário de Login
 router.post('/login', async (req, res) => {
