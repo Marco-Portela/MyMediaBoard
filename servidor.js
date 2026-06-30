@@ -39,8 +39,16 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.use((req, res) => {
+/* app.use((req, res) => {
     res.status(404).render('404');
+});
+ */
+
+app.use((req, res) => {
+    return res.status(404).render('erro', {
+        mensagem: '404 - Página não encontrada',
+        urlRetorno: '/'
+    });
 });
 
 inicializarBanco();

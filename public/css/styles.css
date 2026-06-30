@@ -162,7 +162,8 @@ header {
 
 .feature-card:hover{
     box-shadow: 0 4px 10px rgba(7, 0, 51, 0.253);
-    transform: translateX(+5px);
+    transform: translateY(-4px);
+    transition: .3s;    
 }
 
 .cta-section {
@@ -193,7 +194,9 @@ header {
 .btn-primary:hover { 
     background: var(--cor-primaria-hover); 
     box-shadow: 0 4px 10px rgba(7, 0, 51, 0.253);
-    transform: translateX(+5px);}
+    transform: scale(1.03);
+    transition: .3s;
+}
 .btn-secondary { background: white; color: var(--texto-escuro); border: 1px solid var(--borda); }
 .btn-secondary:hover { background: #f1f5f9; }
 
@@ -496,4 +499,143 @@ footer {
     border-radius: 8px;
     text-align: center;
     font-weight: 600;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-salvar,
+    .btn-cancelar {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    .auth-box,
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-form .filter-group {
+        width: 100%;
+    }
+
+    .filter-form input,
+    .filter-form select {
+        width: 100%;
+    }
+
+    .actions-cell {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-editar,
+    .btn-deletar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 576px) {
+
+    .container {
+        padding: 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 1.7rem;
+    }
+
+    .navbar .logo a {
+        font-size: 1.1rem;
+    }
+
+    .feature-card {
+        padding: 20px;
+    }
+
+    .cta-section {
+        padding: 1.5rem;
+    }
+
+    .auth-box,
+    .form-container {
+        padding: 1.2rem;
+    }
+
+    .media-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }
